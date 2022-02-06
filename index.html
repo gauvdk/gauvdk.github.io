@@ -1,15 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Gauvdk</title>
+	<title>Skimboard France</title>
+
+	<!-- import scripts -->
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+	<script crossorigin src='https://unpkg.com/react-router-dom@5.0.0/umd/react-router-dom.min.js'></script>
+	<script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
+		crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/@mui/material@latest/umd/material-ui.production.min.js"
+		crossorigin="anonymous"></script>
+
+	<!-- import fichier css -->
+	<link rel="stylesheet" href="./css/global.css">
 </head>
 
 <body>
-	<h2>Bonjour !</h2>
+
+	<div id="root"></div>
+	<div id="modal"></div>
+
+	<!-- script qui importe les fichiers -->
+	<script type="text/javascript" src="./import.js"></script>
 </body>
 
 </html>
