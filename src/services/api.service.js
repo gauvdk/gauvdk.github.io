@@ -1,6 +1,6 @@
 export const ApiService = {};
 
-const _url = 'http://skim.trackoad.com:3563';
+const _url = 'https://api.skimfrance.fr';
 
 /**
  * @param {string} type
