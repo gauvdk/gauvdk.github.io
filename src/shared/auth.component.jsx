@@ -1,4 +1,5 @@
 import { getRoutes } from '../services/auth.service.js';
+import { CoverComponent } from './cover.component.jsx';
 import { FooterComponent } from './footer.component.jsx';
 import { SideNavComponent } from './sidenav.component.jsx';
 
@@ -18,10 +19,12 @@ const RouteGeneric = ({ component: Component, roles, path, parentComponent }) =>
 		<Route
 			path={path}
 			exact={true}
-			render={(props) =>
-				<ParentComponent>
+			render={(props) => {
+				globalThis.onChangeRoute && globalThis.onChangeRoute(path);
+				return <ParentComponent>
 					<Component {...props} />
 				</ParentComponent>
+			}
 			}
 		/>
 	);
@@ -31,6 +34,7 @@ export const AuthComponent = () => {
 	return (
 		<BrowserRouter>
 			<SideNavComponent />
+			<CoverComponent />
 			<Switch>
 				{
 					getRoutes().map((route, index) => {

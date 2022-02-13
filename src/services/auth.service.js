@@ -78,7 +78,3 @@ export const getRoutes = () => {
 	const flatRoutes = compile(parentRoute, routes);
 	return flatRoutes;
 }
-
-// if (EnvService.isInDevMod()) {
-// 	addRole('ROLE_GAME');
-// }

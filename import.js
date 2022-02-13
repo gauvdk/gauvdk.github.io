@@ -13,9 +13,17 @@ loadScript('./src/services/api.service.js');
 loadScript('./src/shared/image.component.jsx');
 loadScript('./src/shared/footer.component.jsx');
 loadScript('./src/shared/sidenav.component.jsx');
+loadScript('./src/shared/cover.component.jsx');
+loadScript('./src/shared/container.component.jsx');
 
 // pages
 loadScript('./src/pages/home.jsx');
+loadScript('./src/pages/contact.page.jsx');
+loadScript('./src/pages/discover.page.jsx');
+loadScript('./src/pages/events.page.jsx');
+loadScript('./src/pages/find-spot.page.jsx');
+loadScript('./src/pages/news.page.jsx');
+loadScript('./src/pages/videos.page.jsx');
 loadScript('./src/routes.js');
 
 // services

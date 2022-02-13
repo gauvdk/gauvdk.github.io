@@ -1,4 +1,5 @@
 .image-parralax {
+	width: 100%;
 	opacity: .8 !important;
 }
 
@@ -29,14 +30,64 @@ nav  i:hover {
 	cursor: pointer;
 }
 
-.element-button-nav {
+.element-button-nav > div {
+	font-weight: bold;
+	font-size: 2vw;
 	position: absolute;
-	z-index: 1;
+	top: 2.5vw;
+	left: 10vw;
 }
 
-.element-button-nav > i {
-	font-size: 3em;
-	color: grey;
+@media screen and (max-width: 530px) {
+	.element-button-nav {
+		width: 30% !important;
+	}
+
+	.element-button-nav > div {
+		font-size: 4vw;
+		top: 2.6vw;
+		left: 14vw;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.element-button-nav {
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		width: 20%;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.element-button-nav {
+		position: fixed;
+		z-index: 1;
+		top: 35%;
+		left: -14%;
+		width: 20%;
+		transition: 1s;
+	}
+	
+	.element-button-nav:hover {
+		left: -2%;
+		transition: 1s;
+	}
+
+	.element-button-nav > div {
+		left: 8vw;
+		transition: 1s;
+	}
+	
+	.element-button-nav:hover > div {
+		transition: 1s;
+		left: 10vw;
+	}
+}
+
+
+.element-button-nav > img {
+	opacity: 1 !important;
 }
 
 .element-button-nav:hover {
@@ -45,15 +96,6 @@ nav  i:hover {
 
 .social-icons {
 	color: white;
-}
-
-.home > section {
-	width: 100%;
-	padding-bottom: 1em;
-}
-
-.home > section:not(:first-child) {
-	margin-top: -1em;
 }
 
 .home > section > div {
@@ -72,26 +114,83 @@ nav  i:hover {
 	width: 100%;
 }
 
+.skim-container {
+	padding-top: 1em;
+	padding-bottom: 1em;
+	display: flex;
+}
+
+.invert {
+	background-color: gray;
+	color: white;
+}
+
+.invert a {
+	color: rgb(8, 78, 170);
+}
+
+.skim-container > div {
+	margin-right: 1%;
+}
+
+.skim-container > div:first-child {
+	margin-right: 1%;
+}
+.skim-container > div:last-child {
+	margin-right: 0;
+}
+
 .news-shot h3 {
 	color: #5a5a5a;
 	font-weight: 400;
 }
 
-.news-shot {
-	display: flex;
-}
-
-.news-shot > div {
-	width: 49%;
-}
-
-.news-shot > div:first-child {
-	margin-right: 1%;
-}
-.news-shot > div:last-child {
-	margin-left: 1%;
-}
-
 .news-shot > div:last-child > iframe {
+	height: 25em;
+}
+
+iframe {
 	width: 100%;
+	height: 18em;
+}
+
+
+@media screen and (min-width: 530px) {
+	.only-on-phone {
+		display: none;
+		width: 0;
+	}
+}
+
+@media screen and (max-width: 800px) {
+
+	.not-on-tablet {
+		display: none;
+		width: 0;
+	}
+}
+
+
+@media screen and (max-width: 530px) {
+
+	.not-on-phone {
+		display: none;
+		width: 0;
+	}
+
+	.news-shot > div:first-child {
+		width: 100%;
+	}
+}
+
+.cover {
+	width: 100%;
+}
+
+.sub-cover {
+	margin-top: -23vw;
+}
+
+.videos-shot > div {
+	width: 100em;
 }
