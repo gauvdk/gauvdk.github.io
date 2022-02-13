@@ -1,8 +1,6 @@
 export const ApiService = {};
-// 
-// const _url = 'http://api.skimfrance.fr:3563';
+
 const _url = 'https://api.skimfrance.fr';
-// const _url = 'http://localhost:3563';
 
 let tokenSession;
 
@@ -15,11 +13,16 @@ ApiService.getAll = type => {
 };
 
 ApiService.login = async password => {
-	await axios.post(_url + '/login', { password }, {
-		hearder: {
-			'Access-Control-Allow-Headers': '*'
+	const token = await fetch(_url + '/login', {
+		method: 'POST',
+		body: JSON.stringify({
+			password
+		}),
+		headers: {
+			'Content-Type': 'application/json'
 		}
-	})
-		.then(a => tokenSession = a.data);
-	return Boolean(tokenSession);
+	}).then(o => o.text());
+
+	tokenSession = token;
+	return token !== `${false}`;
 };
