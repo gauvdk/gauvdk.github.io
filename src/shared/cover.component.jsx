@@ -18,8 +18,6 @@ export const CoverComponent = () => {
 		}
 	}, []);
 
-	console.log('render');
-
 	return <section className={classes.join(' ')}>
 		<ImageComponent imageName="cover_1.jpg" />
 	</section>

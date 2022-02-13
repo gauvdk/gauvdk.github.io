@@ -1,3 +1,4 @@
+import { AdminPage } from './pages/admin.page.jsx';
 import { ContactPage } from './pages/contact.page.jsx';
 import { DiscoverPage } from './pages/discover.page.jsx';
 import { EventsPage } from './pages/events.page.jsx';
@@ -42,5 +43,10 @@ export const routes = [
 		name: 'videos',
 		path: '/videos',
 		component: VideosPage
-	}
+	},
+	{
+		name: 'admin',
+		path: '/admin',
+		component: AdminPage
+	},
 ];

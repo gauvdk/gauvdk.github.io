@@ -3,6 +3,11 @@ const { Link } = ReactRouterDOM;
 const { Icon } = MaterialUI;
 
 export const FooterComponent = () => {
+
+	const [isAdmin, setIsAdmin] = React.useState(false);
+
+	globalThis.setIsAdmin = setIsAdmin;
+
 	return <footer>
 		<div>
 			<Link to="/">
@@ -13,6 +18,9 @@ export const FooterComponent = () => {
 			<div>
 				© Gauthier Vandekerckhove - Tous droits réservés
 			</div>
+			{isAdmin && <div className="error-message">
+				Connecté en tant qu'adminstrateur
+			</div>}
 		</div>
 	</footer>
 };
