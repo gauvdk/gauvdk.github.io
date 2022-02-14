@@ -12,9 +12,7 @@ fetch(_url + '/login', {
  * @param {string} type
  */
 ApiService.getAll = type => {
-	return fetch(_url + '/api/' + type, {
-		credentials: 'include',
-	}).then(json);
+	return fetch(_url + '/api/' + type).then(json);
 };
 
 ApiService.getNumberOfPages = (type, elements) => {
