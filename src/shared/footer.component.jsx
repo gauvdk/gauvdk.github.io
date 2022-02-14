@@ -1,3 +1,5 @@
+import { ApiService } from "../services/api.service.js";
+
 const { Link } = ReactRouterDOM;
 
 const { Icon } = MaterialUI;
@@ -5,6 +7,10 @@ const { Icon } = MaterialUI;
 export const FooterComponent = () => {
 
 	const [isAdmin, setIsAdmin] = React.useState(false);
+
+	React.useEffect(() => {
+		ApiService.isAdmin().then(setIsAdmin);
+	}, []);
 
 	globalThis.setIsAdmin = setIsAdmin;
 

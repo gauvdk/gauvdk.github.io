@@ -1,8 +1,6 @@
 import { ContainerComponent } from '../shared/container.component.jsx';
 
-export const PaginationComponent = ({ count = 1, onPageChange }) => {
-
-	const [currentPage, setCurrentPage] = React.useState(1);
+export const PaginationComponent = ({ count = 1, onPageChange, setCurrentPage, currentPage }) => {
 
 	const onPageChangeInternal = React.useCallback((a) => {
 		setCurrentPage(a)

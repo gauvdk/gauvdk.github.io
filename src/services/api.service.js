@@ -2,16 +2,19 @@ export const ApiService = {};
 
 const _url = 'https://api.skimfrance.fr';
 
-let tokenSession;
+const json = out => out.json();
 
-let _isAdmin = false;
+fetch(_url + '/login', {
+	credentials: 'include',
+});
 
 /**
  * @param {string} type
  */
 ApiService.getAll = type => {
-	return fetch(_url + '/api/' + type)
-		.then(a => a.json());
+	return fetch(_url + '/api/' + type, {
+		credentials: 'include',
+	}).then(json);
 };
 
 ApiService.getNumberOfPages = (type, elements) => {
@@ -19,20 +22,22 @@ ApiService.getNumberOfPages = (type, elements) => {
 }
 
 ApiService.login = async password => {
-	const token = await fetch(_url + '/login', {
+	const out = await fetch(_url + '/login', {
 		method: 'POST',
+		credentials: 'include',
 		body: JSON.stringify({
 			password
 		}),
 		headers: {
 			'Content-Type': 'application/json'
 		}
-	}).then(o => o.text());
-
-	tokenSession = token;
-	_isAdmin = token !== `${false}`;
-	globalThis.setIsAdmin && globalThis.setIsAdmin(_isAdmin);
-	return _isAdmin;
+	}).then(json);
+	globalThis.setIsAdmin && globalThis.setIsAdmin(out);
+	return out;
 };
 
-ApiService.isAdmin = () => _isAdmin;
+ApiService.isAdmin = () => fetch(_url + '/login', {
+	credentials: 'include'
+}).then(json);
+
+ApiService.isAdmin();

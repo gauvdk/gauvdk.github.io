@@ -29,6 +29,14 @@ export const AdminPage = () => {
 		}
 	}, [valuePassword]);
 
+	React.useEffect(() => {
+		ApiService.isAdmin().then(out => {
+			if (out) {
+				setErrorMessage(out);
+			}
+		})
+	}, []);
+
 	if (typeof errorMessage === 'boolean') {
 		return <React.Fragment>
 			<Redirect to="/" />

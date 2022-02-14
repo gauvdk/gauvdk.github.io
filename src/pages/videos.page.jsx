@@ -46,7 +46,6 @@ export const VideosPage = () => {
 			}
 		});
 		if (temp.length) {
-			console.log(temp);
 			out.push(<React.Fragment>
 				<ContainerComponent>
 					{temp.concat([])}
@@ -66,6 +65,6 @@ export const VideosPage = () => {
 			<h3>Liste des dernières vidéos</h3>
 		</ContainerComponent>
 		{videos}
-		<PaginationComponent count={countPages} onPageChange={onPageChange} />
+		<PaginationComponent count={countPages} onPageChange={onPageChange} currentPage={currentPage} setCurrentPage={setCurrentPage} />
 	</div>
 }
