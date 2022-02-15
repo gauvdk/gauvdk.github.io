@@ -20,7 +20,7 @@ const NewsPageElement = ({ newsElement, refreshNews, isAdmin }) => {
 		</h4>
 		<strong><EditComponent obj={newsElement} keyObj='dateTitre' type='news' refresh={refreshNews} isAdmin={isAdmin} /></strong>
 		<p><EditComponent obj={newsElement} keyObj='description' type='news' refresh={refreshNews} isAdmin={isAdmin} /></p>
-		<a href={newsElement.url} target='_blank'>Lien de l'article</a>
+		{'id' in newsElement && <a href={newsElement.url} target='_blank'>Lien de l'article</a>}
 		{isAdmin && <p>(<EditComponent obj={newsElement} keyObj='url' type='news' refresh={refreshNews} isAdmin={isAdmin} setState={setState} />)</p>}
 
 	</div>
