@@ -1,15 +1,28 @@
 import { ApiService } from '../services/api.service.js';
 import { ContainerComponent } from '../shared/container.component.jsx';
+import { EditComponent } from '../shared/edit.component.jsx';
 import { PaginationComponent } from '../shared/pagination.component.jsx';
 
 const ELEMENTS_BY_PAGE = 2;
 
-const NewsPageElement = ({ newsElement }) => {
+const NewsPageElement = ({ newsElement, refreshNews, isAdmin }) => {
+
+	const [zz, setState] = React.useState();
+
+	const deleteNews = React.useCallback(() => {
+		ApiService.deleteType('news', newsElement).then(refreshNews);
+	}, []);
+
 	return <div>
-		<h4>{newsElement.titre}</h4>
-		<strong>{newsElement.dateTitre}</strong>
-		<p>{newsElement.description}</p>
-		<a href={newsElement.url}>Lien de l'article</a>
+		<h4>
+			<EditComponent obj={newsElement} keyObj='titre' type='news' refresh={refreshNews} isAdmin={isAdmin} />
+			{isAdmin && 'id' in newsElement && <i className="material-icons right" onClick={deleteNews}>delete</i>}
+		</h4>
+		<strong><EditComponent obj={newsElement} keyObj='dateTitre' type='news' refresh={refreshNews} isAdmin={isAdmin} /></strong>
+		<p><EditComponent obj={newsElement} keyObj='description' type='news' refresh={refreshNews} isAdmin={isAdmin} /></p>
+		<a href={newsElement.url} target='_blank'>Lien de l'article</a>
+		{isAdmin && <p>(<EditComponent obj={newsElement} keyObj='url' type='news' refresh={refreshNews} isAdmin={isAdmin} setState={setState} />)</p>}
+
 	</div>
 }
 
@@ -20,15 +33,33 @@ export const NewsPage = () => {
 	const [currentPage, setCurrentPage] = React.useState(1);
 
 	React.useEffect(() => {
-		ApiService.getNumberOfPages('news', ELEMENTS_BY_PAGE).then(setCountPages).then(() => refreshNews(currentPage));
+		ApiService.getNumberOfPages('news', ELEMENTS_BY_PAGE).then(async a => {
+			if (await ApiService.isAdmin()) {
+				a++;
+			}
+			setCountPages(a);
+		}).then(() => refreshNews(currentPage));
 	}, []);
 
 	const refreshNews = React.useCallback(async (page) => {
-		const list = await ApiService.getAll(`news?page=${page}&count=${ELEMENTS_BY_PAGE}`);
-		setNews(list.map(element => <ContainerComponent>
-			<NewsPageElement newsElement={element} />
-		</ContainerComponent>));
-	}, []);
+		const [list, isAdmin] = await Promise.all([ApiService.getAll(`news?page=${page}&count=${ELEMENTS_BY_PAGE}`), ApiService.isAdmin()]);
+		if (isAdmin && !list.length) {
+			list.push({
+				date: "",
+				titre: "Titre nouvel article",
+				dateTitre: "Date titre",
+				description: "Contenu article",
+				url: "URL",
+			});
+		}
+		setNews([]);
+		setNews(f => {
+			// f.forEach(a => a.destroy());
+			return list.map((element, i) => <ContainerComponent>
+				<NewsPageElement key={i} newsElement={element} refreshNews={refreshNews.bind(undefined, page)} isAdmin={isAdmin} />
+			</ContainerComponent>)
+		});
+	}, [news]);
 
 	const onPageChange = React.useCallback((page) => {
 		setCurrentPage(page);

@@ -16,6 +16,7 @@ loadScript('./src/shared/sidenav.component.jsx');
 loadScript('./src/shared/cover.component.jsx');
 loadScript('./src/shared/container.component.jsx');
 loadScript('./src/shared/pagination.component.jsx');
+loadScript('./src/shared/edit.component.jsx');
 
 // pages
 loadScript('./src/pages/home.jsx');

@@ -34,8 +34,37 @@ ApiService.login = async password => {
 	return out;
 };
 
+ApiService.disconnect = () => void fetch(_url + '/disconnect', {
+	method: 'POST',
+	credentials: 'include'
+}).then(a => {
+	if (a.status === 200) {
+		location.reload();
+	}
+});
+
 ApiService.isAdmin = () => fetch(_url + '/login', {
 	credentials: 'include'
 }).then(json);
 
-ApiService.isAdmin();
+ApiService.saveType = async (type, obj) => {
+	await fetch(_url + '/api/' + type, {
+		method: 'POST',
+		credentials: 'include',
+		body: JSON.stringify(obj),
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	});
+};
+
+ApiService.deleteType = async (type, obj) => {
+	await fetch(_url + '/api/' + type, {
+		method: 'DELETE',
+		credentials: 'include',
+		body: JSON.stringify(obj),
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	});
+};

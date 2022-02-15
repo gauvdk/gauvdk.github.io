@@ -14,6 +14,10 @@ export const FooterComponent = () => {
 
 	globalThis.setIsAdmin = setIsAdmin;
 
+	const disconnect = React.useCallback(() => {
+		ApiService.disconnect();
+	}, []);
+
 	return <footer>
 		<div>
 			<Link to="/">
@@ -25,7 +29,7 @@ export const FooterComponent = () => {
 				© Gauthier Vandekerckhove - Tous droits réservés
 			</div>
 			{isAdmin && <div className="error-message">
-				Connecté en tant qu'adminstrateur
+				Connecté en tant qu'adminstrateur - <button onClick={disconnect}>Déconnexion</button>
 			</div>}
 		</div>
 	</footer>
