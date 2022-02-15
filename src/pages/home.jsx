@@ -45,7 +45,7 @@ export const HomeComponent = () => {
 			</div>
 		</ContainerComponent>
 		<ContainerComponent invert={true}>
-			<h3>Dernières vidéos</h3>
+			<h3>Dernière<span className="not-on-phone">s</span> vidéo<span className="not-on-phone">s</span></h3>
 		</ContainerComponent>
 		<ContainerComponent invert={true} className="center videos-shot">
 			{videos}
