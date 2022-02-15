@@ -48,11 +48,11 @@ export const SideNavComponent = () => {
 				iconName: 'search',
 				label: 'Découvrir le skim',
 			},
-			{
+			/*{
 				url: 'events',
 				iconName: 'flash_on',
 				label: 'Les events',
-			},
+			},*/
 			{
 				url: 'contact',
 				iconName: 'contacts',

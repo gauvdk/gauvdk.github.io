@@ -9,7 +9,7 @@ export const PaginationComponent = ({ count = 1, onPageChange, setCurrentPage, c
 
 	const numbers = [];
 	for (let i = 1; i <= count; i++) {
-		numbers.push(<li onClick={onPageChangeInternal.bind(undefined, i)} className={currentPage === i ? 'active' : 'waves-effect'}><a>{i}</a></li>)
+		numbers.push(<li onClick={onPageChangeInternal.bind(undefined, i)} className={currentPage === i ? 'active cyan darken-3' : 'waves-effect'}><a>{i}</a></li>)
 	}
 
 	const addNumToPage = React.useCallback((num) => {
