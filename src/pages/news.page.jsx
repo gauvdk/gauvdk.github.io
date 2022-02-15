@@ -16,7 +16,7 @@ const NewsPageElement = ({ newsElement, refreshNews, isAdmin }) => {
 	return <div>
 		<h4>
 			<EditComponent obj={newsElement} keyObj='titre' type='news' refresh={refreshNews} isAdmin={isAdmin} />
-			{isAdmin && 'id' in newsElement && <i className="material-icons right" onClick={deleteNews}>delete</i>}
+			{isAdmin && 'id' in newsElement && <i className="material-icons right" onDoubleClick={deleteNews}>delete</i>}
 		</h4>
 		<strong><EditComponent obj={newsElement} keyObj='dateTitre' type='news' refresh={refreshNews} isAdmin={isAdmin} /></strong>
 		<p><EditComponent obj={newsElement} keyObj='description' type='news' refresh={refreshNews} isAdmin={isAdmin} /></p>
