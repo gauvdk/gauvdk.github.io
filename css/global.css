@@ -193,11 +193,11 @@ iframe {
 
 .cover {
 	width: 100%;
-	margin-top: -23vw;
 }
 
 .sub-cover {
-	margin-top: -23vw;
+	/* classe qui permet de rajouter du style sur l'image de cover sur les pages excepté la home */
+	/* margin-top: -23vw; */
 }
 
 .videos-shot > div {
