@@ -25,7 +25,7 @@ export const HomeComponent = () => {
 		ApiService.getAll('videos')
 			.then(a => a.slice(0, 3))
 			.then(list => list.map((a, i) => <div className={i === 1 ? 'not-on-tablet' : (i ? 'not-on-phone' : '')}>
-				<iframe src={a.url}></iframe>
+				<iframe src={a.url} style={{ border: 'none' }}></iframe>
 				{a.auteur} - {a.titre}
 			</div>))
 			.then(setVideos);
@@ -45,7 +45,7 @@ export const HomeComponent = () => {
 			</div>
 		</ContainerComponent>
 		<ContainerComponent invert={true}>
-			<h3>Dernière<span className="not-on-phone">s</span> vidéo<span className="not-on-phone">s</span></h3>
+			<h3>Dernière<span className="not-on-phone">s</span> vidéo<span className="not-on-phone">s</span> de Skim Français</h3>
 		</ContainerComponent>
 		<ContainerComponent invert={true} className="center videos-shot">
 			{videos}
