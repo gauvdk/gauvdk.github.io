@@ -19,6 +19,6 @@ export const CoverComponent = () => {
 	}, []);
 
 	return <section className={classes.join(' ')}>
-		<ImageComponent imageName="cover_1.jpg" />
+		<ImageComponent imageName="cover_1.png" />
 	</section>
 };
