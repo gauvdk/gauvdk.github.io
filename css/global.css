@@ -212,3 +212,37 @@ iframe {
 .videos-list {
 	width: 50%;
 }
+
+.news2 ul {
+  padding: 0;
+  margin: 0;
+}
+.news2 ul li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.news2 ul li a {
+  display: block;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+}
+.news2 ul li a .date {
+  font-family: Arial, sans-serif;
+  color: #212121;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: .08em;
+  display: block;
+  margin-bottom: 10px;
+}
+.news2 ul li a h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #424242;
+}
+.news2 ul li a:hover {
+  background: rgba(229, 229, 229, 0.3);
+  padding-left: 30px;
+}

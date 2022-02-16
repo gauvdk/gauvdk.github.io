@@ -13,17 +13,32 @@ const NewsPageElement = ({ newsElement, refreshNews, isAdmin }) => {
 		ApiService.deleteType('news', newsElement).then(refreshNews);
 	}, []);
 
-	return <div>
-		<h4>
+	{/*return <div>
+			<h4>
+				<EditComponent obj={newsElement} keyObj='titre' type='news' refresh={refreshNews} isAdmin={isAdmin} />
+				{isAdmin && 'id' in newsElement && <i className="material-icons right" onDoubleClick={deleteNews}>delete</i>}
+			</h4>
+			<strong><EditComponent obj={newsElement} keyObj='dateTitre' type='news' refresh={refreshNews} isAdmin={isAdmin} /></strong>
+			<p><EditComponent obj={newsElement} keyObj='description' type='news' refresh={refreshNews} isAdmin={isAdmin} /></p>
+			{'id' in newsElement && <a href={newsElement.url} target='_blank'>Lien de l'article</a>}
+			{isAdmin && <p>(<EditComponent obj={newsElement} keyObj='url' type='news' refresh={refreshNews} isAdmin={isAdmin} setState={setState} />)</p>}
+
+		</div>*/}
+
+
+	return <li>
+	{'id' in newsElement && <a href={newsElement.url} target='_blank'>
+		<span className="date"><EditComponent obj={newsElement} keyObj='dateTitre' type='news' refresh={refreshNews} isAdmin={isAdmin} /></span>
+		<h3>
 			<EditComponent obj={newsElement} keyObj='titre' type='news' refresh={refreshNews} isAdmin={isAdmin} />
 			{isAdmin && 'id' in newsElement && <i className="material-icons right" onDoubleClick={deleteNews}>delete</i>}
-		</h4>
-		<strong><EditComponent obj={newsElement} keyObj='dateTitre' type='news' refresh={refreshNews} isAdmin={isAdmin} /></strong>
-		<p><EditComponent obj={newsElement} keyObj='description' type='news' refresh={refreshNews} isAdmin={isAdmin} /></p>
+		</h3>
+
+		<p className="grey-text text-darken-1"><EditComponent obj={newsElement} keyObj='description' type='news' refresh={refreshNews} isAdmin={isAdmin} /></p>
 		{'id' in newsElement && <a href={newsElement.url} target='_blank'>Lien de l'article</a>}
 		{isAdmin && <p>(<EditComponent obj={newsElement} keyObj='url' type='news' refresh={refreshNews} isAdmin={isAdmin} setState={setState} />)</p>}
-
-	</div>
+		</a>}
+	</li>
 }
 
 export const NewsPage = () => {
@@ -66,11 +81,32 @@ export const NewsPage = () => {
 		refreshNews(page);
 	}, []);
 
+	{/*return <div className="home">
+			<ContainerComponent>
+				<h3>Liste des dernières news</h3>
+			</ContainerComponent>
+			{news}
+			<PaginationComponent count={countPages} onPageChange={onPageChange} currentPage={currentPage} setCurrentPage={setCurrentPage} />
+		</div>*/}
+
 	return <div className="home">
-		<ContainerComponent>
-			<h3>Liste des dernières news</h3>
-		</ContainerComponent>
-		{news}
-		<PaginationComponent count={countPages} onPageChange={onPageChange} currentPage={currentPage} setCurrentPage={setCurrentPage} />
+	<div className="container" style= {{ marginTop: '5%' }}>
+		<div className="row">
+			<div className="col-md-6">
+				<div className="news2">
+					<h3 id="news2" className="grey-text text-darken-2">L'actualitée Skim en France</h3>
+						<ul>
+						{news}
+						</ul>
+				</div>
+				<PaginationComponent count={countPages} onPageChange={onPageChange} currentPage={currentPage} setCurrentPage={setCurrentPage} />
+				</div>
+				<div className="col-md-6 testimonial">
+					<div className="video-container">
+						<iframe src="https://www.youtube.com/embed/DikU2lxxnmo" frameborder="0" allowfullscreen></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 }
