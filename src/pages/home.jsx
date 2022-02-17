@@ -4,11 +4,19 @@ import { ContainerComponent } from '../shared/container.component.jsx';
 const { Link } = ReactRouterDOM;
 
 const ShortNews = ({ data }) => {
-	return <div>
+	return <li>
+		<a href={data.url} target='_blank'>
+			<span class="date">{data.dateTitre}</span>
+			<h3>{data.titre}</h3>
+			<p className="grey-text text-darken-1">{data.description}</p>
+		</a>
+	</li>
+
+	{/*<div>
 		<p>{data.dateTitre}</p>
 		<h5>{data.titre}</h5>
 		<p>{data.description}</p>
-	</div>
+	</div>*/}
 };
 
 export const HomeComponent = () => {
@@ -32,18 +40,69 @@ export const HomeComponent = () => {
 	}, []);
 
 	return <div className="home">
-		<ContainerComponent className='news-shot'>
+		<section>
+			<div className="container" style= {{ marginTop: '5%' }}>
+				<div className="row">
+					<div className="col s8">
+						<div className="news2" style= {{ marginBottom: '3%' }}>
+							<h3 id="news2" className="grey-text text-darken-2">L'actualitée Skim en France</h3>
+								<ul>
+								{news}
+								</ul>
+
+						</div>
+						<Link to="/news" className="cyan-text text-darken-3" style= {{ fontWeight: 'bold' }}>
+							Voir plus d'actus <i class="material-icons transparent"
+							style= {{ position: 'absolute' }}>chevron_right</i>
+						</Link>
+					</div>
+					<div className="col s4">
+						<div className="not-on-phone" style={{ width: '100%' }}>
+							<img src={'./img/news_1.jpg'} />
+
+							{/*<iframe src="https://www.youtube.com/embed/DikU2lxxnmo"
+							style={{ display: 'block', width: '100%', border: 'none' }}></iframe>*/}
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		{/*<ContainerComponent className='news-shot'>
 			<div>
 				<h3>News</h3>
 				{news}
-				<Link to="/news">
-					Voir plus d'infos
+				<Link to="/news" className="cyan-text text-darken-3" style= {{ fontWeight: 'bold' }}>
+					Voir plus d'actus <i class="material-icons transparent"
+					style= {{ position: 'absolute' }}>chevron_right</i>
 				</Link>
 			</div>
 			<div className="not-on-phone" style={{ width: '100em' }}>
 				<iframe src="https://www.youtube.com/embed/DikU2lxxnmo"></iframe>
 			</div>
-		</ContainerComponent>
+		</ContainerComponent>*/}
+
+
+		{/*<section className="grey darken-1">
+			<div className="skim-container white-text">
+				<h3>Dernière<span className="not-on-phone">s</span> vidéo<span className="not-on-phone">s</span> de Skim Français</h3>
+			</div>
+		</section>
+		<section className="grey darken-1">
+			<div className="skim-container center videos-shot white-text">
+				{videos}
+			</div>
+		</section>
+		<section className="grey darken-1">
+			<div className="skim-container">
+				<a href="/videos" className="cyan-text text-darken-3" style= {{ fontWeight: 'bold' }}>
+					Voir plus de vidéos <i class="material-icons transparent"
+					style= {{ position: 'absolute' }}>chevron_right</i>
+				</a>
+			</div>
+		</section>*/}
+
 		<ContainerComponent invert={true}>
 			<h3>Dernière<span className="not-on-phone">s</span> vidéo<span className="not-on-phone">s</span> de Skim Français</h3>
 		</ContainerComponent>
@@ -51,11 +110,12 @@ export const HomeComponent = () => {
 			{videos}
 		</ContainerComponent>
 		<ContainerComponent invert={true} className="center">
-			<Link to="/videos">
-				Voir plus de vidéos
+			<Link to="/videos" className="cyan-text text-darken-3" style= {{ fontWeight: 'bold' }}>
+				Voir plus de vidéos <i class="material-icons transparent"
+				style= {{ position: 'absolute' }}>chevron_right</i>
 			</Link>
 		</ContainerComponent>
-		<ContainerComponent>
+		{/*<ContainerComponent>
 			<h3>Tu souhaites découvrir le skim ?</h3>
 		</ContainerComponent>
 		<ContainerComponent>
@@ -65,6 +125,6 @@ export const HomeComponent = () => {
 				</Link>, n'hésite pas à parcourir le site à la recherche de glisse !
 
 			</div>
-		</ContainerComponent>
+		</ContainerComponent>*/}
 	</div>
 };
