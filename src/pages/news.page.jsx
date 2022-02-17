@@ -106,7 +106,7 @@ export const NewsPage = () => {
 		<div className="row">
 			<div className="col-md-6">
 				<div className="news2">
-					<h3 id="news2" className="grey-text text-darken-2">L'actualitée Skim en France</h3>
+					<h3 id="news2" className="grey-text text-darken-2">L'actualité Skim en France</h3>
 						<ul>
 						{news}
 						</ul>

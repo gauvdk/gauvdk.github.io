@@ -51,7 +51,7 @@ export const HomeComponent = () => {
 				<div className="row">
 					<div className="col s12 m6" style= {{ marginBottom: '3%' }}>
 						<div className="news2" style= {{ marginBottom: '3%' }}>
-							<h3 id="news2" className="grey-text text-darken-2">L'actualitée Skim en France</h3>
+							<h3 id="news2" className="grey-text text-darken-2">L'actualité Skim en France</h3>
 								<ul>
 								{news}
 								</ul>
