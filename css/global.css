@@ -102,6 +102,12 @@ nav  i:hover {
 	cursor: pointer;
 }
 
+.menu-nav:hover {
+  cursor: pointer;
+  left: 2%;
+  transition: 1s;
+}
+
 .social-icons {
 	color: white;
 }
