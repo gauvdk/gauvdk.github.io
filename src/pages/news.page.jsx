@@ -12,7 +12,19 @@ const NewsPageElement = ({ newsElement, refreshNews, isAdmin }) => {
 	const deleteNews = React.useCallback(() => {
 		ApiService.deleteType('news', newsElement).then(refreshNews);
 	}, []);
+	if (isAdmin) {
+		return <div>
+				<h4>
+					<EditComponent obj={newsElement} keyObj='titre' type='news' refresh={refreshNews} isAdmin={isAdmin} />
+					{isAdmin && 'id' in newsElement && <i className="material-icons right" onDoubleClick={deleteNews}>delete</i>}
+				</h4>
+				<strong><EditComponent obj={newsElement} keyObj='dateTitre' type='news' refresh={refreshNews} isAdmin={isAdmin} /></strong>
+				<p><EditComponent obj={newsElement} keyObj='description' type='news' refresh={refreshNews} isAdmin={isAdmin} /></p>
+				{'id' in newsElement && <a href={newsElement.url} target='_blank'>Lien de l'article</a>}
+				{isAdmin && <p>(<EditComponent obj={newsElement} keyObj='url' type='news' refresh={refreshNews} isAdmin={isAdmin} setState={setState} />)</p>}
 
+			</div>
+	}
 	{/*return <div>
 			<h4>
 				<EditComponent obj={newsElement} keyObj='titre' type='news' refresh={refreshNews} isAdmin={isAdmin} />
@@ -26,19 +38,19 @@ const NewsPageElement = ({ newsElement, refreshNews, isAdmin }) => {
 		</div>*/}
 
 
-	return <li>
-	{'id' in newsElement && <a href={newsElement.url} target='_blank'>
-		<span className="date"><EditComponent obj={newsElement} keyObj='dateTitre' type='news' refresh={refreshNews} isAdmin={isAdmin} /></span>
-		<h3>
-			<EditComponent obj={newsElement} keyObj='titre' type='news' refresh={refreshNews} isAdmin={isAdmin} />
-			{isAdmin && 'id' in newsElement && <i className="material-icons right" onDoubleClick={deleteNews}>delete</i>}
-		</h3>
+		return <li>
+		{'id' in newsElement && <a href={newsElement.url} target='_blank'>
+			<span className="date"><EditComponent obj={newsElement} keyObj='dateTitre' type='news' refresh={refreshNews} isAdmin={isAdmin} /></span>
+			<h3>
+				<EditComponent obj={newsElement} keyObj='titre' type='news' refresh={refreshNews} isAdmin={isAdmin} />
+				{isAdmin && 'id' in newsElement && <i className="material-icons right" onDoubleClick={deleteNews}>delete</i>}
+			</h3>
 
-		<p className="grey-text text-darken-1"><EditComponent obj={newsElement} keyObj='description' type='news' refresh={refreshNews} isAdmin={isAdmin} /></p>
-		{'id' in newsElement && <a href={newsElement.url} target='_blank'>Lien de l'article</a>}
-		{isAdmin && <p>(<EditComponent obj={newsElement} keyObj='url' type='news' refresh={refreshNews} isAdmin={isAdmin} setState={setState} />)</p>}
-		</a>}
-	</li>
+			<p className="grey-text text-darken-1"><EditComponent obj={newsElement} keyObj='description' type='news' refresh={refreshNews} isAdmin={isAdmin} /></p>
+			{'id' in newsElement && <a href={newsElement.url} target='_blank'>Lien de l'article</a>}
+			{isAdmin && <p>(<EditComponent obj={newsElement} keyObj='url' type='news' refresh={refreshNews} isAdmin={isAdmin} setState={setState} />)</p>}
+			</a>}
+		</li>
 }
 
 export const NewsPage = () => {
