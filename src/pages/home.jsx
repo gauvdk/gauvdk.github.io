@@ -49,7 +49,7 @@ export const HomeComponent = () => {
 		<div className="section">
 			<div className="container">
 				<div className="row">
-					<div className="col s12 m6">
+					<div className="col s12 m6" style= {{ marginBottom: '3%' }}>
 						<div className="news2" style= {{ marginBottom: '3%' }}>
 							<h3 id="news2" className="grey-text text-darken-2">L'actualitée Skim en France</h3>
 								<ul>
@@ -122,8 +122,7 @@ export const HomeComponent = () => {
 		</ContainerComponent>
 		<ContainerComponent invert={true} className="center">
 			<Link to="/videos" className="cyan-text text-darken-3" style= {{ fontWeight: 'bold' }}>
-				Voir plus de vidéos <i class="material-icons transparent"
-				style= {{ position: 'absolute' }}>chevron_right</i>
+				Voir plus de vidéos <i class="material-icons transparent" style= {{ position: 'absolute' }}>chevron_right</i>
 			</Link>
 		</ContainerComponent>
 		{/*<ContainerComponent>

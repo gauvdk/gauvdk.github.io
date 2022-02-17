@@ -21,13 +21,13 @@ export const FooterComponent = () => {
 	return <footer>
 		<div className="social-icons">
 			<a href="#">
-				<i style= {{ margin: '1%' }} className="white-text fa-brands fa-facebook-square fa-2xl"></i>
+				<i style= {{ margin: '2%' }} className="white-text fa-brands fa-facebook-square fa-2xl"></i>
 			</a>
 			<a href="https://www.instagram.com/skimfrance/" target="_blank">
-				<i style= {{ margin: '1%' }} className="white-text fa-brands fa-instagram fa-2xl"></i>
+				<i style= {{ margin: '2%' }} className="white-text fa-brands fa-instagram fa-2xl"></i>
 			</a>
 			<a href="https://discord.gg/dJMNeSRrYr" target="_blank">
-				<i style= {{ margin: '1%' }} className="white-text fa-brands fa-discord fa-2xl"></i>
+				<i style= {{ margin: '2%' }} className="white-text fa-brands fa-discord fa-2xl"></i>
 			</a>
 			<div>
 				© Cyril Besse & Gauthier Vandekerckhove - Tous droits réservés

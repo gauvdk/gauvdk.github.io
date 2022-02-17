@@ -13,7 +13,7 @@ export const FindSpotPage = () => {
             <div class="card transparent">
                 <div class="card-content">
                     <span class="card-title grey-text text-darken-1" style={{fontWeight: 'bold'}}>Spots de Skim</span>
-                    <p style={{marginTop: '2%'}}>En règle générale un spot de skim de vague est une plage en pente (qui favorisera la création de shorebreak, vagues cassant au bord).</p>
+                    <p style={{marginTop: '2%'}}>En règle générale un spot de skim de vague est une plage en pente (qui favorisera l'apparition de shorebreak, vagues cassant au bord).</p>
 										<p style={{marginTop: '2%'}}>Nous vous proposons ici une carte des meilleurs spots de skimboard en France !</p>
 										<p style={{marginTop: '2%'}}>Tous ces spots ont été testé et approuvé par un skimboarder habitué du spot, pour pouvoir vous donner un max d'infos
 											sur les conditions propices à une session de rêve sur ce spot.</p>
