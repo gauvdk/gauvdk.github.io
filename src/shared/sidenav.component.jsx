@@ -73,7 +73,7 @@ export const SideNavComponent = () => {
 	return <div>
 		<div onClick={openSideNav}>
 			<i class="material-icons white-text large transparent menu-nav"
-			style= {{ textShadow: '5px 5px 5px #ccc', zIndex:'1', display: 'flex', position: 'fixed', transition: '1s' }}>menu</i>
+			style= {{ textShadow: '5px 5px 5px #ccc', zIndex:'1', display: 'flex', position: 'fixed', transition: '1s', zIndex: '2' }}>menu</i>
 		</div>
 
 		<div className="button-side-nav">

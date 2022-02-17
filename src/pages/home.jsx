@@ -22,6 +22,7 @@ const ShortNews = ({ data }) => {
 export const HomeComponent = () => {
 
 	const [news, setNews] = React.useState([]);
+	const [news2, setNews2] = React.useState([]);
 	const [videos, setVideos] = React.useState([]);
 
 	React.useEffect(() => {
@@ -29,6 +30,11 @@ export const HomeComponent = () => {
 			.then(a => a.slice(0, 2))
 			.then(list => list.map(a => <ShortNews key={a.id} data={a} />))
 			.then(setNews);
+
+		ApiService.getAll('news')
+			.then(a => a.slice(2, 4))
+			.then(list => list.map(a => <ShortNews key={a.id} data={a} />))
+			.then(setNews2);
 
 		ApiService.getAll('videos')
 			.then(a => a.slice(0, 3))
@@ -40,34 +46,39 @@ export const HomeComponent = () => {
 	}, []);
 
 	return <div className="home">
-		<section>
-			<div className="container" style= {{ marginTop: '5%' }}>
+		<div className="section">
+			<div className="container">
 				<div className="row">
-					<div className="col s8">
+					<div className="col s12 m6" style= {{ marginBottom: '3%' }}>
 						<div className="news2" style= {{ marginBottom: '3%' }}>
 							<h3 id="news2" className="grey-text text-darken-2">L'actualitée Skim en France</h3>
 								<ul>
 								{news}
 								</ul>
-
 						</div>
 						<Link to="/news" className="cyan-text text-darken-3" style= {{ fontWeight: 'bold' }}>
 							Voir plus d'actus <i class="material-icons transparent"
 							style= {{ position: 'absolute' }}>chevron_right</i>
 						</Link>
 					</div>
-					<div className="col s4">
-						<div className="not-on-phone" style={{ width: '100%' }}>
-							<img src={'./img/news_1.jpg'} />
 
-							{/*<iframe src="https://www.youtube.com/embed/DikU2lxxnmo"
-							style={{ display: 'block', width: '100%', border: 'none' }}></iframe>*/}
-						</div>
+					<div className="col s12 m6">
+					{/*<div className="news2" style= {{ marginBottom: '3%' }}>
+						<h3 id="news2" className="transparent-text">news</h3>
+							<ul>
+							{news2}
+							</ul>
+
+					</div>*/}
+						<div className="card grey darken-4" style= {{ marginTop: 'auto' }}>
+		 					<div className="card-image waves-effect waves-block waves-light" style= {{ height: 'auto' }}>
+		 						<img src={'./img/news_1.jpg'}/>
+		 					</div>
+		 				</div>
 					</div>
 				</div>
-
 			</div>
-		</section>
+		</div>
 
 		{/*<ContainerComponent className='news-shot'>
 			<div>
