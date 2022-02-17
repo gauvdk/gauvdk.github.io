@@ -33,7 +33,7 @@ const VideoPageElement = ({ videoElement, refreshVideos, isAdmin, className = ''
 	</div>
 };
 
-const ELEMENTS_BY_PAGE = 3;
+const ELEMENTS_BY_PAGE = 4;
 
 export const VideosPage = () => {
 
@@ -94,7 +94,7 @@ export const VideosPage = () => {
 
 	return <div className="home">
 		<ContainerComponent>
-			<h3>Liste des dernières vidéos</h3>
+			<h3 className="grey-text text-darken-2">Toutes les vidéos du skimboard français sont ici:</h3>
 		</ContainerComponent>
 		{videos}
 		<PaginationComponent count={countPages} onPageChange={onPageChange} currentPage={currentPage} setCurrentPage={setCurrentPage} />
