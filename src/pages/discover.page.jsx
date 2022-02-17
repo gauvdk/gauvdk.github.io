@@ -42,7 +42,7 @@ export const DiscoverPage = () => {
 						</div>
 					</div>
 					<div className="card-content white-text">
-						<p>Jolie session des riders Austin Keen (Champion du monde) et Axel Cristol (Champion de France) sur un spot mythique en France (La pointe du Cap Ferret)</p>
+						<p>Magnifique session des riders Austin Keen (Champion du monde) et Axel Cristol (Champion de France) sur un spot mythique en France (La pointe du Cap Ferret)</p>
 					</div>
 				</div>
 			</div>
@@ -56,7 +56,7 @@ export const DiscoverPage = () => {
 						petite communauté très familiale de skimboarders qui fait aussi tout son charme. Nous sommes toujours heureux
 						d'accueillir de nouveaux pratiquants.</p>
 					<p>Pour le pratiquer c'est simple, il vous faut un skimboard en résine. En France,
-						 <a href="https://skimboard.com/edenv4/"> Eden</a> et <a href="https://www.my-dune.com/fr-FR/">Dune</a> sont de très
+						 <a href="https://skimboard.com/edenv4/" style= {{ fontWeight: 'bold' }}> Eden</a> et <a href="https://www.my-dune.com/fr-FR/" style= {{ fontWeight: 'bold' }}>Dune</a> sont de très
 						bonnes marques, je déconseille fortement les produits proposés par la grande distribution et made in china, souvent
 						moins chers mais de bien moins bonne qualité.</p>
 				</div>
@@ -73,7 +73,7 @@ export const DiscoverPage = () => {
 				<div className="rte">
 					<p style= {{ marginBottom: '5%' }}>Le skimboard "flat" se rapproche plus du skate, et se pratique sur n'importe quel plan d'eau plat, pas trop profond, 1 à 10 cm environ.
 						Les "tricks" ressemblent à ceux du skate (ollie, shove it, et même des flips). Des "ramps" peuvent être utilisées pour aller plus loin.</p>
-					<p>En France, l'association <a href="https://www.skim-evolution.com/">Skim Evolution</a> ou <a href="https://maunakea.fr/">Mauna Kea</a> proposent pendant tout l'été des initiations au skimboard sur leur skim park.
+					<p>En France, l'association <a href="https://www.skim-evolution.com/" style= {{ fontWeight: 'bold' }}>Skim Evolution</a> ou <a href="https://maunakea.fr/" style= {{ fontWeight: 'bold' }}>Mauna Kea</a> proposent pendant tout l'été des initiations au skimboard sur leur skim park.
 						C'est un excellent moyen de découvrir le skimboard, même si vous voulez ensuite vous diriger vers le skimboard de vague.</p>
 				 </div>
 				</div>
