@@ -30,7 +30,7 @@ export const FooterComponent = () => {
 				<i style= {{ margin: '1%' }} className="white-text fa-brands fa-discord fa-2xl"></i>
 			</a>
 			<div>
-				© Gauthier Vandekerckhove - Tous droits réservés
+				© Cyril Besse & Gauthier Vandekerckhove - Tous droits réservés
 			</div>
 			{isAdmin && <div className="error-message">
 				Connecté en tant qu'adminstrateur - <button onClick={disconnect}>Déconnexion</button>
