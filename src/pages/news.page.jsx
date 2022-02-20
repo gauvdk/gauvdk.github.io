@@ -115,7 +115,7 @@ export const NewsPage = () => {
 				</div>
 				<div className="col-md-6 testimonial">
 					<div className="video-container">
-						<iframe src="https://www.youtube.com/embed/DikU2lxxnmo" frameborder="0" allowfullscreen></iframe>
+						<iframe src="https://www.youtube.com/embed/LXwswVUrGqI?list=TLPQMjAwMjIwMjL6hT8ELspBDQ" frameborder="0" allowfullscreen></iframe>
 					</div>
 				</div>
 			</div>
