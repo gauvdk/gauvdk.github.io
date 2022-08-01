@@ -1,6 +1,6 @@
 export const ApiService = {};
 
-const _url = 'https://api.skimfrance.fr';
+const _url = 'https://api-skimfrance-flqdlklglq-uc.a.run.app';
 
 const json = out => out.json();
 
