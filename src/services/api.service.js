@@ -4,9 +4,9 @@ const _url = 'https://api-skimfrance-flqdlklglq-uc.a.run.app';
 
 const json = out => out.json();
 
-fetch(_url + '/login', {
-	credentials: 'include',
-});
+const getJSessionId = () => {
+    return JSON.parse(document.cookie || '{}').SESSIONID || '';
+}
 
 /**
  * @param {string} type
@@ -22,12 +22,12 @@ ApiService.getNumberOfPages = (type, elements) => {
 ApiService.login = async password => {
 	const out = await fetch(_url + '/login', {
 		method: 'POST',
-		credentials: 'include',
 		body: JSON.stringify({
-			password
+			password,
 		}),
 		headers: {
-			'Content-Type': 'application/json'
+			'Content-Type': 'application/json',
+			'session-id': getJSessionId(),
 		}
 	}).then(json);
 	globalThis.setIsAdmin && globalThis.setIsAdmin(out);
@@ -36,24 +36,37 @@ ApiService.login = async password => {
 
 ApiService.disconnect = () => void fetch(_url + '/disconnect', {
 	method: 'POST',
-	credentials: 'include'
+	headers: {
+		'session-id': getJSessionId(),
+	},
 }).then(a => {
+	document.cookie = '';
 	if (a.status === 200) {
 		location.reload();
 	}
 });
 
 ApiService.isAdmin = () => fetch(_url + '/login', {
-	credentials: 'include'
-}).then(json);
+	headers: {
+		'session-id': getJSessionId(),
+	}
+}).then(json).then(out => {
+	if(typeof out !== 'boolean') {
+		document.cookie = JSON.stringify({
+			SESSIONID: out.SESSIONID,
+		});
+		return false;
+	}
+	return out;
+});
 
 ApiService.saveType = async (type, obj) => {
 	await fetch(_url + '/api/' + type, {
 		method: 'POST',
-		credentials: 'include',
 		body: JSON.stringify(obj),
 		headers: {
-			'Content-Type': 'application/json'
+			'Content-Type': 'application/json',
+			'session-id': getJSessionId(),
 		}
 	});
 };
@@ -61,10 +74,10 @@ ApiService.saveType = async (type, obj) => {
 ApiService.deleteType = async (type, obj) => {
 	await fetch(_url + '/api/' + type, {
 		method: 'DELETE',
-		credentials: 'include',
 		body: JSON.stringify(obj),
 		headers: {
-			'Content-Type': 'application/json'
+			'Content-Type': 'application/json',
+			'session-id': getJSessionId(),
 		}
 	});
 };
